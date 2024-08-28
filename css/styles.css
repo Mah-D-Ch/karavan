@@ -1,0 +1,501 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+      min-width:1000px;        /* Suppose you want minimum width of 1000px */
+      width: auto !important;  /* Firefox will set width as auto */
+      width:1200px;       
+  }
+
+  h3,.fonted{
+    font-family: 'Inter', serif;
+
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  .rectangle {
+    flex: auto;
+    width: 100%;
+  }
+
+  .rectangle1 {
+    background-color: #84a98c;
+    height: 25%;
+    transition: height 0.4s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 1;
+  }
+
+  .rectangle2 {
+    background-color: #bde0fe;
+    height: 25%;
+    transition: height 0.6s cubic-bezier(0.25,0.1,0.25,1), background-color 0.4s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 3;
+  }
+
+  .rectangle3 {
+    background-color: #ffafcc;
+    height: 25%;
+    transition: height 0.6s cubic-bezier(0.25,0.1,0.25,1), background-color 0.4s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 5;
+  }
+
+  .rectangle4 {
+    background-color: #f4a261;
+    height: 25%;
+    transition: height 0.4s cubic-bezier(0.25,0.1,0.25,1);
+    position: relative;
+    z-index: 7;
+  }
+
+  .circle {
+    position: absolute;
+    top: 70%;
+    left: 92%;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: white;
+    transition: top 1.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+      left 1.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 4;
+  }
+
+  .circleglow {
+    position: absolute;
+    top: 70%;
+    left: 92%;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color: white;
+    filter: blur(50px);
+    transition: top 1.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+      left 1.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+    z-index: 4;
+  }
+
+  @keyframes fillTriangle1 {
+    0% {
+      clip-path: polygon(
+       50% 0%,
+       100% 100%,
+       100% 100%,
+       50% 0%,
+       0% 100%,
+       0% 100%);
+    }
+    100% {
+      clip-path: polygon(
+       50% 0%,
+       100% 100%,
+       50% 100%,
+       50% 100%,
+       50% 100%,
+       0% 100%);
+    }
+  }
+
+  @keyframes fillTriangle2 {
+    0% {
+      clip-path: polygon(
+       50% 0%,
+       100% 100%,
+       50% 100%,
+       50% 100%,
+       50% 100%,
+       0% 100%);
+    }100% {
+      clip-path: polygon(
+       50% 0%,
+       100% 100%,
+       100% 100%,
+       50% 0%,
+       0% 100%,
+       0% 100%);
+    }
+  }
+
+  .triangle1 {
+    position: absolute;
+    transform-origin: bottom;
+    bottom: 50%;
+    left: 47.9%;
+    scale: 62%;
+    border-style: solid;
+    border-width: 0 3vw 6.8vw 3vw;
+    border-color: transparent transparent #FFD466 transparent;
+    background-color: transparent;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0%;
+    animation:none;
+    transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1), left 0.7s cubic-bezier(0.25,0.1,0.25,1), scale 0.7s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 9;
+  }
+  
+  .triangle3 {
+    position: absolute;
+    transform-origin: bottom;
+    bottom: 50%;
+    left: 48.55%;
+    scale: 0%;
+    border-style: solid;
+    border-width: 0 3vw 6.8vw 3vw;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    opacity: 100%;
+    z-index: 11;
+  }
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32%;
+    transform: translate(-50%, -50%);
+    filter: blur(0px);
+    transition: filter 0.3s cubic-bezier(0.25,0.1,0.25,1), width 0.7s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 10;
+  }
+  
+  .logoW {
+    position: absolute;
+    fill: white;
+    top: 49.78%;
+    left: 50.15%;
+    width: 32%;
+    transform: translate(-50%, -50%);
+    opacity: 0%;
+    transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1), left 0.7s cubic-bezier(0.25,0.1,0.25,1), top 0.7s cubic-bezier(0.25,0.1,0.25,1), width 0.7s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 8;
+  }
+  
+  .logo_shadow {
+    position: absolute;
+    fill: url(#gradient);
+    opacity: 0%;
+    top: 49.78%;
+    left: 39.8%;
+    width: 89.5%;
+    height: 20%;
+    transform: translate(-50%, -50%);
+    filter: blur(0px);
+    transition: opacity 0.8s cubic-bezier(0.25,0.1,0.25,1), height 1s cubic-bezier(0.25,0.1,0.25,1);
+    z-index: 7;
+  }
+
+
+  .yello-hill-box{
+    position: absolute;
+    pointer-events: none;
+    top: 5%;
+    left: -18.52%;
+    width: 123%;
+    z-index: 2;
+  }
+
+  .yello-hill {
+    position: absolute;
+    pointer-events: visible;
+    fill: #f5b049;
+    filter: blur(20px);
+    transition: filter 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-delay: 100ms;
+    z-index: 2;
+  }
+
+  .yello-hill-shado {
+    position: absolute;
+    pointer-events: visible;
+    fill: #fb8500;
+    filter: blur(20px);
+    transition: filter 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition-delay: 100ms;
+    z-index: 2;
+  }
+
+  .cont:hover .yello-hill{
+   filter: blur(0px);
+  }
+
+  .cont:hover .yello-hill-shado{
+    filter: blur(0px);
+  }
+
+      
+.purple-hill {
+  position: absolute;
+  pointer-events: visible;
+  fill: #c57cff;
+  filter: blur(3px);
+  transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    left 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    top 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    fill 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 4;
+}
+
+.purple-hill-box1{
+  position: absolute;
+  pointer-events: none;
+  top: 33%;
+  left: -50.8%;
+  width: 135%;
+  z-index: 4;
+  transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+left 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+top 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+fill 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); 
+}
+
+.purple-hill-box2{
+  position: absolute;
+  pointer-events: none;
+  top: 33%;
+  left: -50.8%;
+  width: 135%;
+  z-index: 4;
+  transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+left 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+top 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+fill 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); 
+}
+
+.purple-hill-shadow {
+position: absolute;
+pointer-events: visible;
+fill: #9b61fa;
+filter: blur(3px);
+transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+left 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+top 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+fill 0.4s cubic-bezier(0.25, 0.1, 0.25, 1); 
+z-index: 4;
+}
+
+.cont2:hover .purple-hill{
+filter: blur(0px);
+}
+
+.cont2:hover .purple-hill-shadow{
+filter: blur(0px);
+}
+
+
+.right-pink-hill-box {
+position: absolute;
+pointer-events: none;
+top: -15%;
+left: 8%;
+width: 100%;
+transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+left 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+/* border: 1px solid green; */
+z-index: 6;
+}
+
+
+.right-pink-hill {
+position: absolute;
+pointer-events: visible;
+filter: blur(10px);
+transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+left 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+transition-delay: 100ms, 100ms;
+z-index: 6;
+fill: #ef17d9;
+}
+
+.right-pink-hill:hover{
+filter: blur(0px);
+}
+
+
+.multy-Triangle-box1{
+position: absolute;
+pointer-events: none;
+top: 15%;
+left: -27%;
+width: 90%;
+z-index: 7;
+transition: left 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.multy-Triangle-box2{
+position: absolute;
+pointer-events: none;
+top: 15%;
+left: -17.6%;
+width: 34%;
+z-index: 7;
+transition: left 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.multy-Triangle {
+position: absolute;
+pointer-events: visible;
+filter: blur(20px);
+transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+transition-delay: 100ms, 200ms;
+z-index: 7;
+}
+
+.multy-Triangle-shadow {
+position: absolute;
+pointer-events: visible;
+opacity: 20%;
+filter: blur(20px);
+transition: filter 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+transition-delay: 100ms, 200ms;
+z-index: 6;
+}
+
+.cont3:hover .multy-Triangle{
+filter: blur(0px);
+}
+
+.cont3:hover .multy-Triangle-shadow{
+filter: blur(0px);
+}
+
+
+
+/* ========================================== SECOND PAGE CSS ====================================================== */
+
+#secound-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+#sec1{
+  background-color:  #7AE678;
+  height: 50%;
+}
+
+#sec2{
+  background-color: #f4a261;
+  height: 50%;
+}
+
+.img-sec{
+  text-align: center;
+}
+
+#selected-customer{
+  display: none;
+  float: right ;
+  padding: 40px;
+  width: 410px;
+  height: 411px;
+  top: 125px;
+  right: 20px;
+  position: absolute;
+  background-color:#D9D9D9;
+  border-radius: 35px;
+  z-index: 6;
+}
+
+.customer-image{
+  width: 80%;
+  height: 80%;
+}
+
+.item{
+  width: 23.5%;
+  height: 23.5%;
+  padding: 20px;
+  float: left;
+  margin: 0px;
+}
+
+.br{
+  border-right:1px solid #ffffff;
+}
+.bl{
+  border-left: 1px solid #ffffff;
+}
+.bt{
+  border-top:1px solid #ffffff;
+}
+.bb{
+  border-bottom: 1px solid #ffffff;
+}
+
+h3{
+  max-width: 55%;
+  font-weight: lighter;
+  line-height: 4.5vw;
+  letter-spacing: 0em;
+  text-align: left;
+  font-size: 20px;
+  font-size: 3.1vw;
+  padding-left: 20px; /* Adjust the value according to your preference */
+}
+
+h5{
+  font-family: 'Inter';
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+p{
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+a{
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #051778;
+}
+
+
+.scrollable-section {
+  display: block;
+  width: 35%;
+  text-align: center;
+  top:18%;
+  right: 3%;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  max-height: 65%; /* Set the maximum height of the scrollable section */
+  overflow: auto; /* Enable scrolling when content overflows the container */
+}
+
+.scrollable-section::-webkit-scrollbar {
+  width: 0.5em; /* Set the width of the scrollbar */
+}
+
+.scrollable-section::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Set the background color of the scrollbar track */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+}
+
+.scrollable-section::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Set the color of the scrollbar thumb on hover */
+}
